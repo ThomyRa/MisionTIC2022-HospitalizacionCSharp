@@ -12,7 +12,9 @@ namespace HospiEnCasa.App.Consola
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World Entity Framewerk!");
-            AddPaciente();
+            //AddPaciente();
+            BuscarPaciente(1);
+
         }
 
         private static void AddPaciente()
@@ -32,5 +34,12 @@ namespace HospiEnCasa.App.Consola
 
             _repoPaciente.AddPaciente(paciente);
         }
+
+        private static void BuscarPaciente(int idPaciente)
+        {
+            var paciente = _repoPaciente.GetPaciente(idPaciente);
+            Console.WriteLine(paciente.Nombre + " " + paciente.Apellidos);
+        }
     }
+
 }

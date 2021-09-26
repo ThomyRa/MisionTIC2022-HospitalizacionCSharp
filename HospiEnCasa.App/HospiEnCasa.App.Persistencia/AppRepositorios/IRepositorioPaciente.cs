@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 using HospiEnCasa.App.Dominio;
 
 namespace HospiEnCasa.App.Persistencia
