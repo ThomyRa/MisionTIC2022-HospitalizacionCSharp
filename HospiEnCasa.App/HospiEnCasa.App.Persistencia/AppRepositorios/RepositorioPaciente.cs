@@ -49,7 +49,14 @@ namespace HospiEnCasa.App.Persistencia
             if (pacienteEncontrado != null)
             {
                 pacienteEncontrado.Nombre = paciente.Nombre;
-                // pacienteEncontrado.Nombre = paciente.Apellidos;
+                pacienteEncontrado.Apellidos = paciente.Apellidos;
+                pacienteEncontrado.NumeroTelefono = paciente.NumeroTelefono;
+                pacienteEncontrado.Genero = paciente.Genero;
+                pacienteEncontrado.Direccion = paciente.Direccion;
+                pacienteEncontrado.Longitud = paciente.Longitud;
+                pacienteEncontrado.Latitud = paciente.Latitud;
+                pacienteEncontrado.Ciudad = paciente.Ciudad;
+                pacienteEncontrado.FechaNacimiento = paciente.FechaNacimiento;
 
                 _appContext.SaveChanges();
             }

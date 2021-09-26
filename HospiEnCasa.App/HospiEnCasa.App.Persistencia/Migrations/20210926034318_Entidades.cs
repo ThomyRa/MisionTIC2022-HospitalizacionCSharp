@@ -7,6 +7,17 @@ namespace HospiEnCasa.App.Persistencia.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.RenameColumn(
+                name: "Appellidos",
+                table: "Personas",
+                newName: "TarjetaProfesional");
+
+            migrationBuilder.AddColumn<string>(
+                name: "Apellidos",
+                table: "Personas",
+                type: "nvarchar(max)",
+                nullable: true);
+
             migrationBuilder.AddColumn<string>(
                 name: "Ciudad",
                 table: "Personas",
@@ -100,12 +111,6 @@ namespace HospiEnCasa.App.Persistencia.Migrations
 
             migrationBuilder.AddColumn<string>(
                 name: "RegistroRethus",
-                table: "Personas",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "TarjetaProfesional",
                 table: "Personas",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -262,6 +267,10 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                 table: "Personas");
 
             migrationBuilder.DropColumn(
+                name: "Apellidos",
+                table: "Personas");
+
+            migrationBuilder.DropColumn(
                 name: "Ciudad",
                 table: "Personas");
 
@@ -325,9 +334,10 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                 name: "RegistroRethus",
                 table: "Personas");
 
-            migrationBuilder.DropColumn(
+            migrationBuilder.RenameColumn(
                 name: "TarjetaProfesional",
-                table: "Personas");
+                table: "Personas",
+                newName: "Appellidos");
         }
     }
 }

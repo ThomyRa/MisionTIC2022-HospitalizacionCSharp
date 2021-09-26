@@ -5790,6 +5790,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "HospiEnCasa.App.Dominio >= 1.0.0",
       "HospiEnCasa.App.Persistencia >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.0"
     ]
@@ -5800,11 +5801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj",
-      "projectName": "HospiEncasa.App.Consola",
-      "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj",
+      "projectUniqueName": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj",
+      "projectName": "HospiEnCasa.App.Consola",
+      "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj",
       "packagesPath": "C:\\Users\\thomy\\.nuget\\packages\\",
-      "outputPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\obj\\",
+      "outputPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thomy\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5819,6 +5820,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Dominio\\HospiEnCasa.App.Dominio.csproj": {
+              "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Dominio\\HospiEnCasa.App.Dominio.csproj"
+            },
             "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Persistencia\\HospiEnCasa.App.Persistencia.csproj": {
               "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Persistencia\\HospiEnCasa.App.Persistencia.csproj"
             }
