@@ -11,6 +11,7 @@ namespace HospiEnCasa.App.Consola
         private static IRepositorioPaciente _repoPaciente = new RepositorioPaciente(new Persistencia.AppContext());
         private static IRepositorioEnfermera _repoEnfermera = new RepositorioEnfermera(new Persistencia.AppContext());
         private static IRepositorioMedico _repoMedico = new RepositorioMedico(new Persistencia.AppContext());
+        private static IRepositorioFamiliarDesignado _repoFamiliarDesignado = new RepositorioFamiliarDesignado(new Persistencia.AppContext());
         static void Main(string[] args)
         {
 
@@ -26,7 +27,11 @@ namespace HospiEnCasa.App.Consola
 
             // Medicos
             // AddMedico();
-            BuscarMedico(4);
+            // BuscarMedico(4);
+
+            // Familiares Designados
+            // AddFamiliarDesignado();
+            BuscarFamiliarDesignado(5);
 
 
         }
@@ -92,11 +97,30 @@ namespace HospiEnCasa.App.Consola
             };
             _repoMedico.AddMedico(medico);
         }
-
         private static void BuscarMedico(int idMedico)
         {
             var medico = _repoMedico.GetMedico(idMedico);
             Console.WriteLine(medico.Nombre + " " + medico.Apellidos);
+        }
+
+        // Metodos de los FamiliaresDesignados
+        private static void AddFamiliarDesignado()
+        {
+            var familiarDesignado = new FamiliarDesignado
+            {
+                Nombre = "Anna",
+                Apellidos = "Petrovna",
+                NumeroTelefono = "300654321",
+                Genero = Genero.Femenino,
+                Parentesco = "Madre",
+                Correo = "ana.ptreovna@stpetesburg.com"
+            };
+            _repoFamiliarDesignado.AddFamiliarDesignado(familiarDesignado);
+        }
+        private static void BuscarFamiliarDesignado(int idFamiliarDesignado)
+        {
+            var familiarDesignado = _repoFamiliarDesignado.GetFamiliarDesignado(idFamiliarDesignado);
+            Console.WriteLine(familiarDesignado.Nombre + " " + familiarDesignado.Apellidos);
         }
     }
 
