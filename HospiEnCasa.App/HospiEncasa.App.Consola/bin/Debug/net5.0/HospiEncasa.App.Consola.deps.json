@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "HospiEnCasa.App.Consola/1.0.0": {
+      "HospiEncasa.App.Consola/1.0.0": {
         "dependencies": {
           "HospiEnCasa.App.Dominio": "1.0.0",
           "HospiEnCasa.App.Persistencia": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.0"
         },
         "runtime": {
-          "HospiEnCasa.App.Consola.dll": {}
+          "HospiEncasa.App.Consola.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -1073,7 +1073,7 @@
     }
   },
   "libraries": {
-    "HospiEnCasa.App.Consola/1.0.0": {
+    "HospiEncasa.App.Consola/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

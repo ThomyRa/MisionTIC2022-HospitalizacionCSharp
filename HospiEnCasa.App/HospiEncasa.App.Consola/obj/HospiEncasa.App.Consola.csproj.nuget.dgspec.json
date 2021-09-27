@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj": {}
+    "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj": {}
   },
   "projects": {
-    "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj": {
+    "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj",
-        "projectName": "HospiEnCasa.App.Consola",
-        "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\HospiEnCasa.App.Consola.csproj",
+        "projectUniqueName": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj",
+        "projectName": "HospiEncasa.App.Consola",
+        "projectPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\HospiEncasa.App.Consola.csproj",
         "packagesPath": "C:\\Users\\thomy\\.nuget\\packages\\",
-        "outputPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEnCasa.App.Consola\\obj\\",
+        "outputPath": "D:\\Thomas\\c3_desarrollo_software\\proyectos\\Hospitalizacion\\HospiEnCasa.App\\HospiEncasa.App.Consola\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thomy\\AppData\\Roaming\\NuGet\\NuGet.Config"

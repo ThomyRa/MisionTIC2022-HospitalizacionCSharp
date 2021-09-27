@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 
@@ -12,6 +14,9 @@ namespace HospiEnCasa.App.Consola
         private static IRepositorioEnfermera _repoEnfermera = new RepositorioEnfermera(new Persistencia.AppContext());
         private static IRepositorioMedico _repoMedico = new RepositorioMedico(new Persistencia.AppContext());
         private static IRepositorioFamiliarDesignado _repoFamiliarDesignado = new RepositorioFamiliarDesignado(new Persistencia.AppContext());
+        private static IRepositorioSignoVital _repoSignoVital = new RepositorioSignoVital(new Persistencia.AppContext());
+
+
         static void Main(string[] args)
         {
 
@@ -19,19 +24,23 @@ namespace HospiEnCasa.App.Consola
 
             // Pacientes
             // AddPaciente();
-            // BuscarPaciente(1);
+            BuscarPaciente(1);
 
             // Enfermeras
             // AddEnfermera();
-            // BuscarEnfermera(2);
+            BuscarEnfermera(2);
 
             // Medicos
             // AddMedico();
-            // BuscarMedico(4);
+            BuscarMedico(3);
 
-            // Familiares Designados
+            // FamiliaresDesignados
             // AddFamiliarDesignado();
-            BuscarFamiliarDesignado(5);
+            BuscarFamiliarDesignado(4);
+
+            // SignosVitales
+            // AddSignoVital();
+            BuscarSignoVital(1);
 
 
         }
@@ -121,6 +130,23 @@ namespace HospiEnCasa.App.Consola
         {
             var familiarDesignado = _repoFamiliarDesignado.GetFamiliarDesignado(idFamiliarDesignado);
             Console.WriteLine(familiarDesignado.Nombre + " " + familiarDesignado.Apellidos);
+        }
+
+        // Métodos Signos Vitales
+        private static void AddSignoVital()
+        {
+            var signoVital = new SignoVital
+            {
+                FechaHora = new DateTime(2021, 09, 27),
+                Valor = 150.0F,
+                TipoSigno = TipoSigno.TensionArterial
+            };
+            _repoSignoVital.AddSignoVital(signoVital);
+        }
+        private static void BuscarSignoVital(int idSignoVital)
+        {
+            var signoVital = _repoSignoVital.GetSignoVital(idSignoVital);
+            Console.WriteLine($"{signoVital.TipoSigno}: {signoVital.Valor}");
         }
     }
 

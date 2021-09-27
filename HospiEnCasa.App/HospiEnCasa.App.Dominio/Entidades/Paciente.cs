@@ -13,5 +13,6 @@ namespace HospiEnCasa.App.Dominio
         public Enfermera Enfermera { get; set; }
         public Medico Medico { get; set; }
         public Historia Historia { get; set; }
+        public SignoVital SignoVital { get; set; }
     }
 }

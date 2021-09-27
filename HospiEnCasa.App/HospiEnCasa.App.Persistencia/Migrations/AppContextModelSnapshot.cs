@@ -77,7 +77,7 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Property<DateTime>("FechaHora")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Signo")
+                    b.Property<int>("TipoSigno")
                         .HasColumnType("int");
 
                     b.Property<float>("Valor")
@@ -184,6 +184,9 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Property<int?>("MedicoId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SignoVitalId")
+                        .HasColumnType("int");
+
                     b.HasIndex("EnfermeraId");
 
                     b.HasIndex("FamiliarId");
@@ -191,6 +194,8 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.HasIndex("HistoriaId");
 
                     b.HasIndex("MedicoId");
+
+                    b.HasIndex("SignoVitalId");
 
                     b.HasDiscriminator().HasValue("Paciente");
                 });
@@ -220,6 +225,10 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("MedicoId");
 
+                    b.HasOne("HospiEnCasa.App.Dominio.SignoVital", "SignoVital")
+                        .WithMany()
+                        .HasForeignKey("SignoVitalId");
+
                     b.Navigation("Enfermera");
 
                     b.Navigation("Familiar");
@@ -227,6 +236,8 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Navigation("Historia");
 
                     b.Navigation("Medico");
+
+                    b.Navigation("SignoVital");
                 });
 
             modelBuilder.Entity("HospiEnCasa.App.Dominio.Historia", b =>
