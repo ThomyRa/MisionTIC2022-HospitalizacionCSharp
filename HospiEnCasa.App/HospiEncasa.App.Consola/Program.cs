@@ -15,6 +15,8 @@ namespace HospiEnCasa.App.Consola
         private static IRepositorioMedico _repoMedico = new RepositorioMedico(new Persistencia.AppContext());
         private static IRepositorioFamiliarDesignado _repoFamiliarDesignado = new RepositorioFamiliarDesignado(new Persistencia.AppContext());
         private static IRepositorioSignoVital _repoSignoVital = new RepositorioSignoVital(new Persistencia.AppContext());
+        private static IRepositorioSugerenciaCuidado _repoSugerenciaCuidado = new RepositorioSugerenciaCuidado(new Persistencia.AppContext());
+        private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
 
 
         static void Main(string[] args)
@@ -41,6 +43,14 @@ namespace HospiEnCasa.App.Consola
             // SignosVitales
             // AddSignoVital();
             BuscarSignoVital(1);
+
+            //Sugerencia Cuidado
+            // AddSugerenciaCuidado();
+            // BuscarSugerenciaCuidado(1);
+
+            //Historia
+            // AddHistoria();
+            // BuscarHistoria(1);
 
 
         }
@@ -148,6 +158,43 @@ namespace HospiEnCasa.App.Consola
             var signoVital = _repoSignoVital.GetSignoVital(idSignoVital);
             Console.WriteLine($"{signoVital.TipoSigno}: {signoVital.Valor}");
         }
+
+        //Métodos Sugerencias Cuidado
+        private static void AddSugerenciaCuidado()
+        {
+            var sugerenciaCuidado = new SugerenciaCuidado
+            {
+                FechaHora = DateTime.UtcNow.Date,  // <----- Preguntar uso de FechaHora
+                Description = "Se recomienda reposo."
+            };
+            // Console.WriteLine($"{sugerenciaCuidado.FechaHora} - {sugerenciaCuidado.Description}");
+            _repoSugerenciaCuidado.AddSugerenciaCuidado(sugerenciaCuidado);
+        }
+
+        private static void BuscarSugerenciaCuidado(int idSugerenciaCuidado)
+        {
+            var sugerenciaCuidado = _repoSugerenciaCuidado.GetSugerenciaCuidado(idSugerenciaCuidado);
+            Console.WriteLine($"{sugerenciaCuidado.Description} - {sugerenciaCuidado.FechaHora}");
+        }
+
+        // Métodos Historia
+        private static void AddHistoria()
+        {
+            var historia = new Historia
+            {
+                Diagnostico = "Enfermo",
+                Entorno = "Adecuado",
+                SugerenciasCuidado = new List<SugerenciaCuidado> { }
+                // SugerenciasCuidado = new List<SugerenciaCuidado> { _repoSugerenciaCuidado.GetSugerenciaCuidado(1) }
+            };
+            _repoHistoria.AddHistoria(historia);
+        }
+        private static void BuscarHistoria(int idHistoria)
+        {
+            var historiaEncontrada = _repoHistoria.GetHistoria(idHistoria);
+            Console.WriteLine($"El diagnostico es: {historiaEncontrada.Diagnostico}");
+        }
+
     }
 
 }
