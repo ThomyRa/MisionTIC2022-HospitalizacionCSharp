@@ -13,10 +13,10 @@ namespace HospiEnCasa.App.Persistencia
         {
             _appContext = appContext;
         }
-
         SugerenciaCuidado IRepositorioSugerenciaCuidado.AddSugerenciaCuidado(SugerenciaCuidado sugerenciaCuidado)
         {
             var sugerenciaCuidadoAdicionada = _appContext.SugerenciasCuidado.Add(sugerenciaCuidado);
+            _appContext.SaveChanges();
             return sugerenciaCuidadoAdicionada.Entity;
         }
         void IRepositorioSugerenciaCuidado.DeleteSugerenciaCuidado(int idSugerenciaCuidado)

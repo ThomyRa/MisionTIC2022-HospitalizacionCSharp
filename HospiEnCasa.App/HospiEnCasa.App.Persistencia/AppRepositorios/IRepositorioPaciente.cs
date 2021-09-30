@@ -11,5 +11,10 @@ namespace HospiEnCasa.App.Persistencia
         IEnumerable<Paciente> GetAllPaciente();
         Paciente GetPaciente(int idPaciente);
         Paciente UpdatePaciente(Paciente paciente);
+        Medico AsignarMedico(int idPaciente, int idMedico);
+        Enfermera AsignarEnfermera(int idPaciente, int idEnfermera);
+        FamiliarDesignado AsignarFamiliar(int idPaciente, int idFamiliarDesignado);
+        SignoVital AsignarSignoVital(int idPaciente, int idSignoVital);
+        Historia AsignarHistoria(int idPaciente, int idHistoria);
     }
 }

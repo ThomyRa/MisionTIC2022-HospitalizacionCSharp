@@ -63,5 +63,86 @@ namespace HospiEnCasa.App.Persistencia
             return pacienteEncontrado;
         }
 
+        Medico IRepositorioPaciente.AsignarMedico(int idPaciente, int idMedico)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+            if (pacienteEncontrado != null)
+            {
+                var medicoEncontrado = _appContext.Medicos.FirstOrDefault(m => m.Id == idMedico);
+                if (medicoEncontrado != null)
+                {
+                    pacienteEncontrado.Medico = medicoEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return medicoEncontrado;
+            }
+            return null;
+        }
+
+        Enfermera IRepositorioPaciente.AsignarEnfermera(int idPaciente, int idEnfermera)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+            if (pacienteEncontrado != null)
+            {
+                var enfermeraEncontrada = _appContext.Enfermeras.FirstOrDefault(e => e.Id == idEnfermera);
+                if (enfermeraEncontrada != null)
+                {
+                    pacienteEncontrado.Enfermera = enfermeraEncontrada;
+                    _appContext.SaveChanges();
+                }
+                return enfermeraEncontrada;
+            }
+            return null;
+        }
+
+        FamiliarDesignado IRepositorioPaciente.AsignarFamiliar(int idPaciente, int idFamiliarDesignado)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+            if (pacienteEncontrado != null)
+            {
+                var familiarDesignadoEncontrado = _appContext.FamiliaresDesignados.FirstOrDefault(f => f.Id == idFamiliarDesignado);
+                if (familiarDesignadoEncontrado != null)
+                {
+                    pacienteEncontrado.Familiar = familiarDesignadoEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return familiarDesignadoEncontrado;
+            }
+            return null;
+        }
+
+        SignoVital IRepositorioPaciente.AsignarSignoVital(int idPaciente, int idSignoVital)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+            if (pacienteEncontrado != null)
+            {
+                var signoVitalEncontrado = _appContext.SignosVitales.FirstOrDefault(s => s.Id == idSignoVital);
+                if (signoVitalEncontrado != null)
+                {
+                    pacienteEncontrado.SignoVital = signoVitalEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return signoVitalEncontrado;
+            }
+            return null;
+        }
+
+        Historia IRepositorioPaciente.AsignarHistoria(int idPaciente, int idHistoria)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+            if (pacienteEncontrado != null)
+            {
+                var historiaEncontrada = _appContext.Historias.FirstOrDefault(s => s.Id == idHistoria);
+                if (historiaEncontrada != null)
+                {
+                    pacienteEncontrado.Historia = historiaEncontrada;
+                    _appContext.SaveChanges();
+                }
+                return historiaEncontrada;
+            }
+            return null;
+        }
+
     }
+
 }

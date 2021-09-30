@@ -11,5 +11,6 @@ namespace HospiEnCasa.App.Persistencia
         IEnumerable<Historia> GetAllHistoria();
         Historia GetHistoria(int idHistoria);
         Historia UpdateHistoria(Historia historia);
+        List<SugerenciaCuidado> AsignarSugerenciaCuidado(int idHistoria, int idSugerenciaCuidado);
     }
 }

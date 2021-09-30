@@ -26,23 +26,28 @@ namespace HospiEnCasa.App.Consola
 
             // Pacientes
             // AddPaciente();
-            BuscarPaciente(1);
+            // BuscarPaciente(1);
+            // AsignarMedico();
+            // AsignarEnfermera();
+            // AsignarFamiliar();
+            // AsignarSignoVital();
+            // AsignarHistoria();
 
             // Enfermeras
             // AddEnfermera();
-            BuscarEnfermera(2);
+            // BuscarEnfermera(2);
 
             // Medicos
             // AddMedico();
-            BuscarMedico(3);
+            // BuscarMedico(3);
 
             // FamiliaresDesignados
             // AddFamiliarDesignado();
-            BuscarFamiliarDesignado(4);
+            // BuscarFamiliarDesignado(4);
 
             // SignosVitales
             // AddSignoVital();
-            BuscarSignoVital(1);
+            // BuscarSignoVital(1);
 
             //Sugerencia Cuidado
             // AddSugerenciaCuidado();
@@ -50,7 +55,8 @@ namespace HospiEnCasa.App.Consola
 
             //Historia
             // AddHistoria();
-            // BuscarHistoria(1);
+            BuscarHistoria(1);
+            // AsignarSugerenciaCuidado();
 
 
         }
@@ -76,7 +82,40 @@ namespace HospiEnCasa.App.Consola
         {
             var paciente = _repoPaciente.GetPaciente(idPaciente);
             Console.WriteLine(paciente.Nombre + " " + paciente.Apellidos);
+            SignoVital signo = paciente.SignoVital;
+            Console.WriteLine($"El signo es: {signo}");
         }
+        private static void AsignarMedico()
+        {
+            var medico = _repoPaciente.AsignarMedico(1, 3);
+            var paciente = _repoPaciente.GetPaciente(1);
+            Console.WriteLine($"El medico {medico.Nombre} {medico.Apellidos} se le asignó al paciente {paciente.Nombre} {paciente.Apellidos}");
+        }
+        private static void AsignarEnfermera()
+        {
+            var enfermera = _repoPaciente.AsignarEnfermera(1, 2);
+            var paciente = _repoPaciente.GetPaciente(1);
+            Console.WriteLine($"La enfermera {enfermera.Nombre} {enfermera.Apellidos} se le asignó al paciente {paciente.Nombre} {paciente.Apellidos}");
+        }
+        private static void AsignarFamiliar()
+        {
+            var familiar = _repoPaciente.AsignarFamiliar(1, 4);
+            var paciente = _repoPaciente.GetPaciente(1);
+            Console.WriteLine($"El familiar {familiar.Nombre} {familiar.Apellidos} se le asignó al paciente {paciente.Nombre} {paciente.Apellidos}");
+        }
+        private static void AsignarSignoVital()
+        {
+            var signoVital = _repoPaciente.AsignarSignoVital(1, 1);
+            var paciente = _repoPaciente.GetPaciente(1);
+            Console.WriteLine($"Se ha asignado el signo vital {signoVital.TipoSigno} al paciente {paciente.Nombre} {paciente.Apellidos}");
+        }
+        private static void AsignarHistoria()
+        {
+            var historia = _repoPaciente.AsignarHistoria(1, 1);
+            var paciente = _repoPaciente.GetPaciente(1);
+            Console.WriteLine($"Se ha asignado una hitoria al paciente {paciente.Nombre} {paciente.Apellidos}");
+        }
+
 
         // Metodos de las Enfermeras
         private static void AddEnfermera()
@@ -167,7 +206,7 @@ namespace HospiEnCasa.App.Consola
                 FechaHora = DateTime.UtcNow.Date,  // <----- Preguntar uso de FechaHora
                 Description = "Se recomienda reposo."
             };
-            // Console.WriteLine($"{sugerenciaCuidado.FechaHora} - {sugerenciaCuidado.Description}");
+            Console.WriteLine($"{sugerenciaCuidado.FechaHora} - {sugerenciaCuidado.Description}");
             _repoSugerenciaCuidado.AddSugerenciaCuidado(sugerenciaCuidado);
         }
 
@@ -193,7 +232,21 @@ namespace HospiEnCasa.App.Consola
         {
             var historiaEncontrada = _repoHistoria.GetHistoria(idHistoria);
             Console.WriteLine($"El diagnostico es: {historiaEncontrada.Diagnostico}");
+            // Console.WriteLine($"La sugerencia de cuidado es:");
+            // foreach (var sugerencia in historiaEncontrada.SugerenciasCuidado)
+            // {
+            //     Console.WriteLine(sugerencia.Description);
+            // }
         }
+        private static void AsignarSugerenciaCuidado()
+        {
+            var sugerenciasCuidado = _repoHistoria.AsignarSugerenciaCuidado(1, 1);
+            foreach (var sugerencia in sugerenciasCuidado)
+            {
+                Console.WriteLine($"{sugerencia.FechaHora} - {sugerencia.Description}");
+            }
+        }
+
 
     }
 

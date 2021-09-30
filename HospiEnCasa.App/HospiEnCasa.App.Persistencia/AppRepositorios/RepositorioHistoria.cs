@@ -51,7 +51,25 @@ namespace HospiEnCasa.App.Persistencia
             }
             return historiaEncontrada;
         }
-
+        List<SugerenciaCuidado> IRepositorioHistoria.AsignarSugerenciaCuidado(int idHistoria, int idSugerenciaCuidado)
+        {
+            var historiaEncontrada = _appContext.Historias.FirstOrDefault(h => h.Id == idHistoria);
+            if (historiaEncontrada != null)
+            {
+                var sugerenciaCuidadoEncontradas = _appContext.SugerenciasCuidado.Where(sc => sc.Id == idSugerenciaCuidado);
+                if (sugerenciaCuidadoEncontradas != null)
+                {
+                    historiaEncontrada.SugerenciasCuidado = sugerenciaCuidadoEncontradas.ToList();
+                    foreach (var sugerencias in historiaEncontrada.SugerenciasCuidado)
+                    {
+                        Console.WriteLine($"Sugerencia cuidado: {sugerencias.Description}");
+                    }
+                    _appContext.SaveChanges();
+                }
+                return historiaEncontrada.SugerenciasCuidado;
+            }
+            return null;
+        }
 
     }
 }
